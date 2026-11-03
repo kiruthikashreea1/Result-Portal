@@ -1,0 +1,88 @@
+<html>
+<head>
+ <title>Student Result Portal</title>
+
+<style>
+ body {
+    font-family: Arial;
+    background-color: lightblue;
+    text-align: center;
+}
+
+header {
+ background-color: green;
+color: white;
+padding:20px;
+}
+
+input {
+ width: 90%;
+padding: 10px;
+margin: 10px 0;
+border: 1px solid gray;
+border-radius: 5px;
+}
+button {
+     
+background-color: blue;
+color: white;
+padding: 10px 20px;
+border-radius: 5px;
+ }          
+button:hover{
+  background-color: pink;
+ }
+#result {
+margin-top: 20px;
+color: black;
+white-space: pre-line;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+<h1>Student Result Portal</h1>
+ <p>Check Your Examination Results</p>
+</header>
+
+<div class="container">
+
+ <h2>View Result</h2>
+  <input type="text" id="name"
+placeholder="Enter Student Name">
+
+<br>
+<button onclick="search()">Search Student</button>
+<div id="result"></div>
+</div>
+
+<script>
+let data = [
+    { roll_no: 101, name: "shree", mark: 99 },
+    { roll_no: 102, name: "kavi", mark: 97 },
+    { roll_no: 103, name: "bhama", mark: 88 },
+    { roll_no: 104, name: "rose", mark: 77 },
+    { roll_no: 105, name: "nisha", mark: 68 }
+];
+      
+ function search() {
+
+let name = document.getElementById("name").value;
+let student = data.find(s => s.name == name.toLowerCase().trim());
+
+ if (student) {
+
+  document.getElementById("result").textContent ="Student Name: " + student.name +
+   "\nRegister Number: " + student.roll_no +"\nMark: " + student.mark;
+}
+else {
+document.getElementById("result").textContent="Student Not Available";
+
+}
+}
+</script>
+
+</body>
+</html>
